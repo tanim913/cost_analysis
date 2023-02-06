@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Menu/Butoon ===> Action ====> View -->
+  <record id="view_costing_category_tree" model="ir.ui.view">
+    <field name="name">costing.category.tree</field>
+    <field name="model">costing.category</field>
+    <field name="arch" type="xml">
+      <tree string="Category">
+        <field name="sequence" />
+        <field name="name" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_costing_category_form" model="ir.ui.view">
+    <field name="name">costing.category.form</field>
+    <field name="model">costing.category</field>
+    <field name="arch" type="xml">
+      <form string="Category">
+        <sheet>
+          <group>
+            <field name="sequence" />
+            <field name="name" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_costing_category_list" model="ir.actions.act_window">
+    <field name="name">Category List</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">costing.category</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  
+  <menuitem
+    id="menu_costing_category_module_category_list"
+    name="Costing Category"
+    parent="menu_cost_analysis_module"
+    action="action_costing_category_list"
+    sequence="2" />
+
+
+</odoo>

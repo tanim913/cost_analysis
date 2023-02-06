@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- Menu/Butoon ===> Action ====> View -->
+  <record id="view_cost_analysis_tree" model="ir.ui.view">
+    <field name="name">cost.analysis.tree</field>
+    <field name="model">cost.analysis</field>
+    <field name="arch" type="xml">
+      <tree string="Products">
+        <field name="product_id" />
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_cost_analysis_form" model="ir.ui.view">
+    <field name="name">cost.analysis.form</field>
+    <field name="model">cost.analysis</field>
+    <field name="arch" type="xml">
+      <form string="Products">
+        <sheet>
+          <group>
+            <field name="product_id" />
+          </group>
+          <notebook>
+            <page string="Category List" name='category_list'>
+
+              <field name="line_ids">
+                <tree>
+                  <field name="category_id" />
+                  <field name="cost" />
+                </tree>
+
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_cost_analysis_list" model="ir.actions.act_window">
+    <field name="name">Product List</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">cost.analysis</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem
+    id="menu_cost_analysis_module"
+    name="Cost Analysis"
+    sequence="1" />
+
+  <menuitem
+    id="menu_cost_analysis_module_product_list"
+    name="Cost Anlysis"
+    parent="menu_cost_analysis_module"
+    action="action_cost_analysis_list"
+    sequence="1" />
+
+
+</odoo>

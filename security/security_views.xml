@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="module_category_cost_analysis" model="ir.module.category">
+            <field name="description">Cost Analysis</field>
+            <field name="name">Cost Analysis</field>
+            <field name="sequence">4</field>
+        </record>
+
+        <record id="group_cost_analysis_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="cost_analysis.module_category_cost_analysis"/>
+        </record>
+
+        <record id="group_cost_analysis_admin" model="res.groups">
+            <field name="name">Admin</field>
+            <field name="category_id" ref="cost_analysis.module_category_cost_analysis"/>
+            <field name="implied_ids" eval="[(4, ref('cost_analysis.group_cost_analysis_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        </record>
+
+    </data>
+</odoo>

@@ -15,10 +15,11 @@
         'stock'
     ],
     'data': [
-    
+        'security/security_views.xml',
         'security/ir.model.access.csv',
         'views/cost_analysis_views.xml',
         'views/costing_category_views.xml',
+        
  
         
     ],

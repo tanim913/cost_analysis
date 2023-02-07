@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="cost_analysis_category_raw_materials" model="costing.category">
+            <field name="sequence">1</field>
+            <field name="name">Raw materials</field>
+        </record>
+        <record id="cost_analysis_category_travel_expense" model="costing.category">
+            <field name="sequence">2</field>
+            <field name="name">Travel Expense</field>
+        </record>
+        <record id="cost_analysis_category_shipping_cost" model="costing.category">
+            <field name="sequence">3</field>
+            <field name="name">Shipping Cost</field>
+        </record>
+
+    </data>
+</odoo>

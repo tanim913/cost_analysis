@@ -18,7 +18,19 @@
       <form string="Products">
         <sheet>
           <group>
-            <field name="product_id" />
+            <group>
+              <field name="product_id" />
+              <field name="partner_id" />
+              <field name="lc_number" />
+              <field name="name" />
+              <field name="date" />
+            </group>
+            <group>
+              <field name="scheduled_deadline" />
+              <field name="lc_price" />
+              <field name="bank_number" />
+              <field name="product_qty" />
+            </group>
           </group>
           <notebook>
             <page string="Category List" name='category_list'>
@@ -32,6 +44,10 @@
               </field>
             </page>
           </notebook>
+          <group class="oe_right" colspan="2">
+            <field name="total_cost"/>
+            <field name="unit_cost" />
+          </group>
         </sheet>
       </form>
     </field>

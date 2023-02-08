@@ -5,7 +5,7 @@
     <field name="name">costing.category.tree</field>
     <field name="model">costing.category</field>
     <field name="arch" type="xml">
-      <tree string="Category">
+      <tree string="Category" editable="top">
         <field name="sequence" />
         <field name="name" />
       </tree>
@@ -31,7 +31,7 @@
     <field name="name">Category List</field>
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">costing.category</field>
-    <field name="view_mode">tree,form</field>
+    <field name="view_mode">tree</field>
   </record>
 
   

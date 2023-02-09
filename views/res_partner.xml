@@ -10,4 +10,18 @@
             </xpath>
         </field>
     </record>
+
+    <record id="view_partner_form_extended_cost_analysis_list_button" model="ir.ui.view">
+        <field name="name">res.partner.cost.analysis.list.button</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position='before'>
+                <header>
+                    <button name="view_cost_analysis_products" class="btn btn-primary" string="Cost Analysis List" type="object" />
+                </header>
+           </xpath>
+        </field>
+    </record>
+
 </odoo> 

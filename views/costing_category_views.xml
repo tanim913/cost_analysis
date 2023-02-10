@@ -40,6 +40,7 @@
     name="Costing Category"
     parent="menu_cost_analysis_module"
     action="action_costing_category_list"
+    groups="cost_analysis.group_cost_analysis_admin"
     sequence="2" />
 
 

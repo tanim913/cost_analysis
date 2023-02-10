@@ -39,3 +39,16 @@ class CostAnalysis(models.Model):
             self.unit_cost = total / self.product_qty
         else:
             self.unit_cost = 0
+    
+    def get_info(self):
+        # group_id = self.env.ref("cost_analysis.group_cost_analysis_admin")
+        # is_exist = False
+        # for user in group_id.users:
+        #     if user.id == self.env.user.id:
+        #         is_exist = True
+        #         break
+        if self.env.user.has_group("cost_analysis.group_cost_analysis_admin"):
+            raise UserError("Admin User")
+        else:
+            raise UserError("General User")
+            

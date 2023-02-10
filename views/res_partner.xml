@@ -6,13 +6,13 @@
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
             <xpath expr="//field[@name='vat']" position='after'>
-                 <field name="cost_analysis_count"/>
+                <field name="cost_analysis_count" />
             </xpath>
-            <xpath expr="//sheet" position='before'>
-                <header>
-                    <button name="view_cost_analysis_products" class="btn btn-primary" string="Cost Analysis List" type="object" />
-                </header>
-           </xpath>
+            <xpath expr="//div[@name='button_box']" position='inside'>
+                <button name="view_cost_analysis_products" class="oe_stat_button" type="object" icon="fa-list">
+                    <field string="Cost Analysis" name="cost_analysis_count" widget="statinfo"/>
+                </button>
+            </xpath>
         </field>
     </record>
 

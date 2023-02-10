@@ -18,10 +18,11 @@ class CostAnalysis(models.Model):
     scheduled_deadline = fields.Datetime(string="Scheduled Deadline")
     product_qty = fields.Integer(string="Product Quantity")
     lc_price = fields.Float(string= "LC Price")  
-    bank_number = fields.Char(string="Bank Number")
+    bank_name = fields.Char(string="Bank Name")
     total_cost = fields.Float(string= "Total Cost", compute='_get_calculate_total_cost')  
     unit_cost = fields.Float(string= "Unit Cost", compute='_get_calculate_unit_cost')  
-
+    company_code = fields.Char(string="Company Code")
+    attachment_ids = fields.Many2many('ir.attachment', string='Attachments')
 
     @api.depends('line_ids')
     def _get_calculate_total_cost(self):
@@ -50,5 +51,5 @@ class CostAnalysis(models.Model):
         if self.env.user.has_group("cost_analysis.group_cost_analysis_admin"):
             raise UserError("Admin User")
         else:
-            raise UserError("General User")
+            raise UserError("Logged in user  = "+ self.env.user.name)
             

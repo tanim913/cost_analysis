@@ -18,7 +18,8 @@
       <form string="Products">
         <header>
           <button name="get_info" class="btn btn-primary" string="Get User Info" type="object"/>
-          <button name="mapped_filtered" class="btn btn-primary" string="Mapped Filtered" type="object"/>
+          <button name="company_names" class="btn btn-primary" string="Company from Contacts" type="object"/>
+          <button name="person_names" class="btn btn-primary" string="Individual from Contacts" type="object"/>
         </header>
         <sheet>
           <div class="oe_button_box" name="button_box">

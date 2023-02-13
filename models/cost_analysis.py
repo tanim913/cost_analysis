@@ -54,5 +54,21 @@ class CostAnalysis(models.Model):
             raise UserError("Logged in user  = "+ self.env.user.name)
 
     def mapped_filtered(self):
-        pass
-            
+        records = self.env["res.partner"].search([])
+
+        print("Total Contacts",len(records))
+        for rec in records:
+            print(rec.name)
+
+        company_records = records.filtered(lambda rec: rec.company_type == "company")
+        company_names = company_records.mapped('name')
+        print("-----------------Company Names------------------------")
+        for name in company_names:
+            print(name)
+        
+        person_records = records.filtered(lambda rec: rec.company_type == "person")
+        person_names = person_records.mapped('name')
+        print("-----------------Person Names------------------------")
+        for name in person_names:
+            print(name)
+        

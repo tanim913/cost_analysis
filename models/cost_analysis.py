@@ -52,4 +52,7 @@ class CostAnalysis(models.Model):
             raise UserError("Admin User")
         else:
             raise UserError("Logged in user  = "+ self.env.user.name)
+
+    def mapped_filtered(self):
+        pass
             

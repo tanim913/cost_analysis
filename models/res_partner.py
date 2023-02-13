@@ -9,7 +9,7 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     # cost_analysis_ids = fields.One2many('cost.analysis', 'partner_id', 'Cost Analysis Ids')
-    cost_analysis_count = fields.Integer(string="Cost Analysis Count", compute='_get_calculate_cost_analysis_count')
+    cost_analysis_count = fields.Integer(string="Cost Analysis", compute='_get_calculate_cost_analysis_count')
 
     # @api.depends('cost_analysis_ids')
     def _get_calculate_cost_analysis_count(self):

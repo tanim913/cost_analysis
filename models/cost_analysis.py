@@ -59,7 +59,7 @@ class CostAnalysis(models.Model):
         company_records = records.filtered(lambda rec: rec.company_type == "company")
         company_names = company_records.mapped('name')
         str_company = "Total Company : "+str(len(company_names))+"\n\n"
-        print("-----------------Company Names------------------------")
+        # print("-----------------Company Names------------------------")
         for name in company_names:
             str_company += str(name)+"\n"
         raise UserError(str_company)
@@ -69,7 +69,7 @@ class CostAnalysis(models.Model):
         person_records = records.filtered(lambda rec: rec.company_type == "person")
         person_names = person_records.mapped('name')
         str_person = "Total Individual : "+str(len(person_names))+"\n\n"
-        print("-----------------Person Names------------------------")
+        # print("-----------------Person Names------------------------")
         for name in person_names:
             str_person += str(name)+"\n"
         raise UserError(str_person)

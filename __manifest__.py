@@ -12,7 +12,8 @@
     'website': '',
     'depends': [
         'base_setup',
-        'stock'
+        'stock',
+        'purchase'
     ],
     'data': [
         'security/security_views.xml',

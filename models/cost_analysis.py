@@ -11,6 +11,7 @@ class CostAnalysis(models.Model):
 
     product_id = fields.Many2one("product.product", string="Product Name")
     partner_id = fields.Many2one("res.partner", string="Partner Name")
+    purchase_id = fields.Many2one("purchase.order", string="Purchase")
     line_ids = fields.One2many('costing.line', 'cost_analysis_id', string="Cost")
     lc_number = fields.Char(string="LC Number")
     name = fields.Char(string="Name")

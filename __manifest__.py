@@ -21,6 +21,7 @@
         'views/cost_analysis_views.xml',
         'views/costing_category_views.xml',
         'views/res_partner.xml',
+        'views/product_template.xml',
         
  
         

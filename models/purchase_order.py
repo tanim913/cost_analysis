@@ -6,27 +6,24 @@ from odoo.exceptions import UserError, ValidationError, Warning
 
 
 class ResPartner(models.Model):
-    _inherit = 'product.template'
+    _inherit = 'purchase.order'
 
     cost_analysis_count = fields.Integer(string="Cost Analysis", compute='_get_calculate_cost_analysis_count')
     
     def _get_calculate_cost_analysis_count(self):
-        product_id = self.env['product.product'].search([('product_tmpl_id', '=', self.id)])
-        # print("--------------------",len(product_id))
-        self.cost_analysis_count = len(self.env['cost.analysis'].search([('product_id', '=', product_id.id)]))
+        self.cost_analysis_count = len(self.env['cost.analysis'].search([('purchase_id', '=', self.id)]))
 
 
 
-    def view_cost_analysis_stock_products(self):
-        tree_view_id = self.env.ref('cost_analysis.view_cost_analysis_tree')
-        product_id = self.env['product.product'].search([('product_tmpl_id', '=', self.id)])
+    def view_cost_analysis_puchase_order_products(self):
+        form_view_id = self.env.ref('cost_analysis.view_cost_analysis_tree')
         return {
             'type': 'ir.actions.act_window',
             'name': _('Partner Cost Analysis'),
             'res_model': 'cost.analysis',
             'view_mode': 'tree',
-            'domain': [('product_id', '=', product_id.id)],
-            'view_id': tree_view_id.id,
+            'domain': [('purchase_id.id', '=', self.id)],
+            'view_id': form_view_id.id,
             'context': {"create": False},
             'target': 'current'
         }

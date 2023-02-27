@@ -13,13 +13,18 @@ class ResPartner(models.Model):
     def _get_calculate_cost_analysis_count(self):
         product_id = self.env['product.product'].search([('product_tmpl_id', '=', self.id)])
         # print("--------------------",len(product_id))
-        self.cost_analysis_count = len(self.env['cost.analysis'].search([('product_id', '=', product_id.id)]))
+        # self.cost_analysis_count = len(self.env['cost.analysis'].search([('product_id', '=', product_id.id)]))
+        # if len(product_id) > 1:
+        #     product_id = product_id[0]
+        self.cost_analysis_count = len(self.env['cost.analysis'].search([('product_id.product_tmpl_id','=',self.id)]))
 
 
 
     def view_cost_analysis_stock_products(self):
         tree_view_id = self.env.ref('cost_analysis.view_cost_analysis_tree')
         product_id = self.env['product.product'].search([('product_tmpl_id', '=', self.id)])
+        if len(product_id) > 1:
+            product_id = product_id[0]
         return {
             'type': 'ir.actions.act_window',
             'name': _('Partner Cost Analysis'),

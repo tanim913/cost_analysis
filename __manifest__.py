@@ -13,7 +13,8 @@
     'depends': [
         'base_setup',
         'stock',
-        'purchase'
+        'purchase',
+        'account'
     ],
     'data': [
         'security/security_views.xml',
@@ -24,6 +25,7 @@
         'views/res_partner.xml',
         'views/product_template.xml',
         'views/purchase_order.xml',
+        'views/post_expenses_views.xml',
         
  
         

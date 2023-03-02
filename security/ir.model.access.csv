@@ -5,3 +5,4 @@ access_costing_cetegory_user,Costing Cetegory User Access,model_costing_category
 access_costing_cetegory_admin,Costing Cetegory Admin Access,model_costing_category,cost_analysis.group_cost_analysis_admin,1,1,1,1
 access_costing_line_user,Cost Analysis User Access,model_costing_line,cost_analysis.group_cost_analysis_user,1,1,1,0
 access_costing_line_admin,Cost Analysis Admin Access,model_costing_line,cost_analysis.group_cost_analysis_admin,1,1,1,1
+access_post_expenses_admin,Cost Analysis Admin Access,model_post_expenses,cost_analysis.group_cost_analysis_user,1,1,1,1

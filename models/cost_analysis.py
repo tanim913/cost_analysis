@@ -74,3 +74,15 @@ class CostAnalysis(models.Model):
         for name in person_names:
             str_person += str(name)+"\n"
         raise UserError(str_person)
+    
+    def view_post_expenses_details(self):
+        form_view_id = self.env.ref('cost_analysis.view_post_expenses_form_simple')
+        return {
+            'type': 'ir.actions.act_window',
+            'name': _('Post Expenses'),
+            'res_model': 'post.expenses',
+            'view_mode': 'form',
+            # 'res_id': self.blood_group_id.id, 
+            'view_id': form_view_id.id,
+            'target':'new' 
+        }

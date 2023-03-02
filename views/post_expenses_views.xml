@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_post_expenses_form_simple" model="ir.ui.view">
+        <field name="name">post.expenses.form.simple</field>
+        <field name="model">post.expenses</field>
+        <field name="arch" type="xml">
+            <form string="Post Expense">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="date" />
+                            <field name="journal" />
+                        </group>
+                        <group>
+                            <field name="reference" />
+                            <field name="amount" />
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Post" class="btn btn-primary" />
+                    <button string="Cancel" class="btn btn-primary" special='cancel' />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

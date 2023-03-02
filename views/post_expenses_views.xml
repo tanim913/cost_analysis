@@ -9,7 +9,7 @@
                     <group>
                         <group>
                             <field name="date" />
-                            <field name="journal" />
+                            <field name="journal" domain="[('type','in',['cash', 'bank'])]"/>
                         </group>
                         <group>
                             <field name="reference" />

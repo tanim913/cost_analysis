@@ -28,6 +28,7 @@
           </div>
           <group>
             <field name="product_id" />
+            <field name="cost_manager" />
           </group>
           <group>
             <group>
@@ -39,6 +40,7 @@
             </group>
             <group groups="cost_analysis.group_cost_analysis_admin">
               <field name="lc_number" />
+              <field name="cost_manager" />
               <field name="lc_price" />
               <field name="bank_name" />
               <field name="product_qty" />

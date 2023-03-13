@@ -24,6 +24,7 @@ class CostAnalysis(models.Model):
     unit_cost = fields.Float(string= "Unit Cost", compute='_get_calculate_unit_cost')  
     company_code = fields.Char(string="Company Code")
     attachment_ids = fields.Many2many('ir.attachment', string='Attachments')
+    cost_manager = fields.Many2one(comodel_name="res.users", string="Cost Analyst", default = lambda self:self.env.user)
 
     @api.depends('line_ids')
     def _get_calculate_total_cost(self):

@@ -11,6 +11,7 @@
     'description': "Analyses the cost of product",
     'website': '',
     'depends': [
+        'base',
         'base_setup',
         'stock',
         'purchase',
@@ -26,6 +27,8 @@
         'views/product_template.xml',
         'views/purchase_order.xml',
         'views/post_expenses_views.xml',
+        'security/cost_analysis_sequrity.xml',
+        
         
  
         

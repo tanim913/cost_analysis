@@ -7,6 +7,7 @@ from odoo.exceptions import UserError, ValidationError ,Warning
 class CostAnalysis(models.Model):
     _name = "cost.analysis"
     _description = "Cost Analysis Details"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _rec_name = 'product_id'
 
     product_id = fields.Many2one("product.product", string="Product Name")

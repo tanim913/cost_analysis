@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="action_report_cost_analysis_document_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure" />
+                        <div class="row">
+                            <div class="col-2">
+                                <b>Name</b>
+                                <br/>
+                                <b>Partner</b>
+                                <br/>
+                                <b>Adress</b>
+                                <br/>
+                                <b>Cost Analyst</b>
+                                <br/>
+                                <b>Date</b>
+                                <br/>
+                                <b>Deadline</b>
+                                <br/>
+                                <b>Purchase</b>
+                                <br/>
+                            </div>
+                            <div class="col-4">
+                                : <span t-field="doc.name" />
+                                <br/>
+                                : <span t-field="doc.partner_id" />
+                                <br/>
+                                : <span t-field="doc.address" />
+                                <br/>
+                                : <span t-field="doc.cost_manager" />
+                                <br/>
+                                : <span t-field="doc.date" />
+                                <br/>
+                                : <span t-field="doc.scheduled_deadline" />
+                                <br/>
+                                : <span t-field="doc.purchase_id" />
+                                <br/>
+                            </div>
+                            <div class="col-2">
+                                <b>Product Name</b>
+                                <br/>
+                                <br/>
+                                <b>LC Number</b>
+                                <br/>
+                                <b>LC Price</b>
+                                <br/>
+                                <b>Bank Name</b>
+                                <br/>
+                                <b>Quantity</b>
+                                <br/>
+                                <b>Company Code</b>
+                                <br/>
+                            </div>
+                            <div class="col-4">
+                                : <span t-field="doc.product_id" />
+                                <br/>
+                                : <span t-field="doc.lc_number" />
+                                <br/>
+                                : <span t-field="doc.lc_price" />
+                                <br/>
+                                : <span t-field="doc.bank_name" />
+                                <br/>
+                                : <span t-field="doc.product_qty" />
+                                <br/>
+                                : <span t-field="doc.company_code" />
+                                <br/>
+                            </div>
+                            <br/>
+                        </div>
+                        <table class="table table-sm o_main_table">
+                            <div>
+                                <br/> <br/>
+                            </div>
+                            
+                            <strong>
+                                Category List
+                            </strong>
+                            
+                            <tbody>
+                                <thead>
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <tr>
+                                                <th name="th_category" class="text-left">
+                                                    <div class="col-8">
+                                                        Category
+                                                    </div>
+                                                </th>
+                                                <th name="th_cost" class="text-left">
+                                                    <div class="col-4">
+                                                        Cost
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </div>
+                                    </div>
+                                </thead>
+                            </tbody>
+                            <tbody>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <t t-foreach="doc.line_ids" t-as="id">
+                                            <tr>
+                                                <td name="td_category" class="text-left">
+                                                    <div class="col-8">
+                                                        <span t-field="id.category_id" />
+                                                    </div>
+                                                </td>
+                                                <td name="td_cost" class="text-left">
+                                                    <div class="col-4">
+                                                        <span t-field="id.cost" />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <!-- <tr>
+                                            <td name="td_total_cost_label" >
+                                                <div class="col-8 text-right">
+                                                    <b>Total Costs</b>
+                                                </div>
+                                            </td>
+                                            <td name="td_total_cost" class="text-left">
+                                                <div class="col-4">
+                                                    : <span t-field="doc.total_cost" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td name="td_unit_cost_label">
+                                                <div class="col-8 text-right">
+                                                    <b>Unit Cost</b>
+                                                </div>
+                                            </td>
+                                            <td name="td_unit_cost" class="text-left">
+                                                <div class="col-4">
+                                                    : <span t-field="doc.unit_cost" />
+                                                </div>
+                                            </td>
+                                        </tr> -->
+                                    </div>
+                                </div>
+                            </tbody>
+                        </table>
+                        <hr />
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="col-8 text-right"> 
+                                    <b>Total Costs</b> <br />
+                                    <b>Unit Cost</b>
+                                </div>
+                                <div class="col-4 text-left">  
+                                    : <span t-field="doc.total_cost" />
+                                    <br /> 
+                                    : <span t-field="doc.unit_cost" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

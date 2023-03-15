@@ -28,6 +28,8 @@
         'views/purchase_order.xml',
         'views/post_expenses_views.xml',
         'security/cost_analysis_sequrity.xml',
+        'report/cost_analysis_reports.xml',
+        'report/cost_analysis_information_report.xml',
         
         
  

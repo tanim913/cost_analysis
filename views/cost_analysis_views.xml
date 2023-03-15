@@ -39,6 +39,7 @@
               <field name="name" />
               <field name="date" />
               <field name="purchase_id" />
+              <field name="address" />
               <field name="scheduled_deadline" groups="cost_analysis.group_cost_analysis_admin" />
             </group>
             <group groups="cost_analysis.group_cost_analysis_admin">

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_report_cost_analysis" model="ir.actions.report">
+            <field name="name">Cost Analysis</field>
+            <field name="model">cost.analysis</field>
+            <field name="report_type">qweb-html</field>
+            <field name="report_name">cost_analysis.action_report_cost_analysis_document_template</field>
+            <field name="report_file">cost_analysis.action_report_cost_analysis_document_template</field>
+            <field name="print_report_name">'Cost-Analysis - %s' % (object.lc_number)</field>
+            <field name="binding_model_id" ref="model_cost_analysis"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

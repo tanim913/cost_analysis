@@ -1,6 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 acess_cost_analysis_user,Cost Analysis User Access,model_cost_analysis,cost_analysis.group_cost_analysis_user,1,1,1,0
 acess_cost_analysis_admin,Cost Analysis Admin Access,model_cost_analysis,cost_analysis.group_cost_analysis_admin,1,1,1,1
+acess_cost_analysis_tag_admin,Cost Analysis Tag Admin Access,model_cost_analysis_tag,cost_analysis.group_cost_analysis_admin,1,1,1,1
 access_costing_cetegory_user,Costing Cetegory User Access,model_costing_category,cost_analysis.group_cost_analysis_user,1,0,0,0
 access_costing_cetegory_admin,Costing Cetegory Admin Access,model_costing_category,cost_analysis.group_cost_analysis_admin,1,1,1,1
 access_costing_line_user,Cost Analysis User Access,model_costing_line,cost_analysis.group_cost_analysis_user,1,1,1,0

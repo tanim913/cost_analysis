@@ -24,8 +24,14 @@ class CostAnalysis(models.Model):
     total_cost = fields.Float(string= "Total Cost", compute='_get_calculate_total_cost')  
     unit_cost = fields.Float(string= "Unit Cost", compute='_get_calculate_unit_cost')  
     company_code = fields.Char(string="Company Code")
-    address = fields.Char(string="Address")
-    
+    # address = fields.Char(string="Address")
+    cost_analysis_tag_ids = fields.Many2many('cost.analysis.tag', string="Tags")
+    street = fields.Char()
+    street2 = fields.Char()
+    zip = fields.Char(change_default=True)
+    city = fields.Char()
+    state_id = fields.Many2one("res.country.state", string='State', ondelete='restrict', domain="[('country_id', '=?', country_id)]")
+    country_id = fields.Many2one('res.country', string='Country', ondelete='restrict')
     attachment_ids = fields.Many2many('ir.attachment', string='Attachments')
     cost_manager = fields.Many2one(comodel_name="res.users", string="Cost Analyst", default = lambda self:self.env.user)
 
@@ -45,7 +51,17 @@ class CostAnalysis(models.Model):
             self.unit_cost = total / self.product_qty
         else:
             self.unit_cost = 0
-    
+    @api.onchange('partner_id')
+    def _onchange_partner_id(self):
+        if self and self.partner_id:
+            partner_id = self.partner_id
+            self.street = partner_id.street
+            self.street2 = partner_id.street2
+            self.zip = partner_id.zip
+            self.city = partner_id.city
+            self.state_id = partner_id.state_id
+            self.country_id = partner_id.country_id
+
     def get_info(self):
         # group_id = self.env.ref("cost_analysis.group_cost_analysis_admin")
         # is_exist = False

@@ -13,8 +13,8 @@
                                 <br/>
                                 <b>Partner</b>
                                 <br/>
-                                <b>Adress</b>
-                                <br/>
+                                <!-- <b>Adress</b> -->
+                                <!-- <br/> -->
                                 <b>Cost Analyst</b>
                                 <br/>
                                 <b>Date</b>
@@ -29,8 +29,8 @@
                                 <br/>
                                 : <span t-field="doc.partner_id" />
                                 <br/>
-                                : <span t-field="doc.address" />
-                                <br/>
+                                <!-- : <span t-field="doc.address" /> -->
+                                <!-- <br/> -->
                                 : <span t-field="doc.cost_manager" />
                                 <br/>
                                 : <span t-field="doc.date" />
@@ -79,7 +79,9 @@
                             <strong>
                                 Category List
                             </strong>
-                            
+                            <div>
+                                <br/> 
+                            </div>
                             <tbody>
                                 <thead>
                                     <div class="col-12">
@@ -90,10 +92,10 @@
                                                         Category
                                                     </div>
                                                 </th>
-                                                <th name="th_cost" class="text-left">
-                                                    <div class="col-4">
+                                                <th name="th_cost" style="text-align:right">
+                                                    <!-- <div class="col-4" style="text-align:right"> -->
                                                         Cost
-                                                    </div>
+                                                    <!-- </div> -->
                                                 </th>
                                             </tr>
                                         </div>
@@ -110,10 +112,10 @@
                                                         <span t-field="id.category_id" />
                                                     </div>
                                                 </td>
-                                                <td name="td_cost" class="text-left">
-                                                    <div class="col-4">
+                                                <td name="td_cost" style="text-align:right">
+                                                    <!-- <div class="col-4"  > -->
                                                         <span t-field="id.cost" />
-                                                    </div>
+                                                    <!-- </div> -->
                                                 </td>
                                             </tr>
                                         </t>
@@ -148,11 +150,11 @@
                         <hr />
                         <div class="col-12">
                             <div class="row">
-                                <div class="col-8 text-right"> 
+                                <div class="col-11" style="text-align:right;"> 
                                     <b>Total Costs</b> <br />
                                     <b>Unit Cost</b>
                                 </div>
-                                <div class="col-4 text-left">  
+                                <div class="col-1" style="text-align:right; padding-right: 0; padding-left: 0;">  
                                     : <span t-field="doc.total_cost" />
                                     <br /> 
                                     : <span t-field="doc.unit_cost" />

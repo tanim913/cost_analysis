@@ -18,8 +18,8 @@
                     </group>
                 </sheet>
                 <footer>
-                    <button string="Post" class="btn btn-primary" />
-                    <button string="Cancel" name="view_post_button_details" class="btn btn-primary" special='cancel' />
+                    <button string="Post it" name="view_post_button_details" class="btn btn-primary" type="object"/>
+                    <button string="Cancel" class="btn btn-primary" special='cancel' />
                 </footer>
             </form>
         </field>

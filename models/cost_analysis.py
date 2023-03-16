@@ -69,6 +69,8 @@ class CostAnalysis(models.Model):
         #     if user.id == self.env.user.id:
         #         is_exist = True
         #         break
+        po_ex = self.env["post.expenses"]
+        po_ex.with_context(my_context='tanim').view_post_button_details()
         if self.env.user.has_group("cost_analysis.group_cost_analysis_admin"):
             raise UserError("Admin User")
         else:
@@ -103,7 +105,7 @@ class CostAnalysis(models.Model):
             'res_model': 'post.expenses',
             'view_mode': 'form',
             # 'res_id': self.blood_group_id.id, 
-            "context": {'default_reference': self.lc_number},
+            "context": {'default_reference': self.lc_number, 'my_context':"tanim"},
             'view_id': form_view_id.id,
             'target':'new' 
         }

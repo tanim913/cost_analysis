@@ -15,4 +15,7 @@ class PostExpenses(models.Model):
     amount = fields.Float(string="Amount")
     
     def view_post_button_details(self):
-        pass
+        print("----------------", self.env.context)
+        print("----------------", self.env.context.get('my_context'))
+
+    

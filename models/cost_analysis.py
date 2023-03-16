@@ -107,3 +107,18 @@ class CostAnalysis(models.Model):
             'view_id': form_view_id.id,
             'target':'new' 
         }
+    def print_cost_analysis_report(self):
+        # return self.env.ref('cost_analysis.action_report_cost_analysis').report_action(self)
+        # object_id = self.env['cost.analysis'].browse(3)
+        # return self.env.ref('cost_analysis.action_report_cost_analysis').report_action(object_id)
+        cost_category_list=[]
+        for obj in self.line_ids:
+            cost_category_list.append([obj.category_id.name, obj.cost])
+        # print(cost_category_list,"++++++++++++++++++++++++++")
+        datas = {
+            # 'my_name': "mamun",
+            'cost_analysis_obj': self.read(),
+            'cost_list': cost_category_list,
+        }
+        # print("----------------------",datas)
+        return self.env.ref('cost_analysis.action_report_cost_analysis_value_based').report_action([], data=datas)

@@ -18,12 +18,10 @@
       <form string="Products">
         <header>
           <button name="get_info" class="btn btn-primary" string="Get User Info" type="object" />
-          <button name="company_names" class="btn btn-primary" string="Company from Contacts"
-            type="object" />
-          <button name="person_names" class="btn btn-primary" string="Individual from Contacts"
-            type="object" />
-          <button name="view_post_expenses_details" class="btn btn-primary" string="Post Expenses"
-            type="object" />
+          <button name="company_names" class="btn btn-primary" string="Company from Contacts" type="object" />
+          <button name="person_names" class="btn btn-primary" string="Individual from Contacts" type="object" />
+          <button name="view_post_expenses_details" class="btn btn-primary" string="Post Expenses" type="object" />
+          <button name="print_cost_analysis_report" class="btn btn-secondary" string="Print Report" type="object" />
         </header>
         <sheet>
           <div class="oe_button_box" name="button_box">

@@ -18,10 +18,14 @@
       <form string="Products">
         <header>
           <button name="get_info" class="btn btn-primary" string="Get User Info" type="object" />
-          <button name="company_names" class="btn btn-primary" string="Company from Contacts" type="object" />
-          <button name="person_names" class="btn btn-primary" string="Individual from Contacts" type="object" />
-          <button name="view_post_expenses_details" class="btn btn-primary" string="Post Expenses" type="object" />
-          <button name="print_cost_analysis_report" class="btn btn-secondary" string="Print Report" type="object" />
+          <button name="company_names" class="btn btn-primary" string="Company from Contacts"
+            type="object" />
+          <button name="person_names" class="btn btn-primary" string="Individual from Contacts"
+            type="object" />
+          <button name="view_post_expenses_details" class="btn btn-primary" string="Post Expenses"
+            type="object" />
+          <button name="print_cost_analysis_report" class="btn btn-secondary" string="Print Report"
+            type="object" />
         </header>
         <sheet>
           <div class="oe_button_box" name="button_box">
@@ -34,14 +38,16 @@
           <group>
             <group>
               <field name="partner_id" />
-              <label for="street" string="Address"/>
+              <label for="street" string="Address" />
               <div class="o_address_format">
-                  <field name="street" placeholder="Street..." class="o_address_street"/>
-                  <field name="street2" placeholder="Street 2..." class="o_address_street"/>
-                  <field name="city" placeholder="City" class="o_address_city"/>
-                  <field name="state_id" class="o_address_state" placeholder="State" options='{"no_open": True}'/>
-                  <field name="zip" placeholder="ZIP" class="o_address_zip"/>
-                  <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                <field name="street" placeholder="Street..." class="o_address_street" />
+                <field name="street2" placeholder="Street 2..." class="o_address_street" />
+                <field name="city" placeholder="City" class="o_address_city" />
+                <field name="state_id" class="o_address_state" placeholder="State"
+                  options='{"no_open": True}' />
+                <field name="zip" placeholder="ZIP" class="o_address_zip" />
+                <field name="country_id" placeholder="Country" class="o_address_country"
+                  options='{"no_open": True, "no_create": True}' />
               </div>
               <field name="name" />
               <field name="date" />
@@ -51,7 +57,8 @@
             </group>
             <group groups="cost_analysis.group_cost_analysis_admin">
               <field name="lc_number" />
-              <field name="cost_analysis_tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+              <field name="cost_analysis_tag_ids" widget="many2many_tags"
+                options="{'color_field': 'color'}" />
               <field name="lc_price" />
               <field name="bank_name" />
               <field name="product_qty" />
@@ -87,12 +94,45 @@
       </form>
     </field>
   </record>
-
+  <record model="ir.ui.view" id="view_cost_analysis_kanban">
+    <field name="name">cost.analysis.kanban</field>
+    <field name="model">cost.analysis</field>
+    <field name="arch" type="xml">
+      <kanban default_group_by='product_id' on_create="quick_create">
+        <field name='product_id' />
+        <field name='partner_id' />
+        <field name="lc_number" />
+        <templates>
+          <t t-name="kanban-box">
+            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+              <div>
+                <div class="row">
+                  <div class="col-12">
+                    <field name="product_id" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <field name="partner_id" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12">
+                    <field name="lc_number" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
   <record id="action_cost_analysis_list" model="ir.actions.act_window">
     <field name="name">Product List</field>
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">cost.analysis</field>
-    <field name="view_mode">tree,form</field>
+    <field name="view_mode">tree,form,kanban</field>
   </record>
 
   <menuitem

@@ -27,3 +27,7 @@ class ResPartner(models.Model):
             'context': {"create": False},
             'target': 'current'
         }
+
+# class BankContact(models.Model):
+#     _name = "bank.contact"
+#     _inherit = ['res.partner']

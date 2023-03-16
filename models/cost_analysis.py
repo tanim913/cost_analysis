@@ -103,6 +103,7 @@ class CostAnalysis(models.Model):
             'res_model': 'post.expenses',
             'view_mode': 'form',
             # 'res_id': self.blood_group_id.id, 
+            "context": {'default_reference': self.lc_number},
             'view_id': form_view_id.id,
             'target':'new' 
         }

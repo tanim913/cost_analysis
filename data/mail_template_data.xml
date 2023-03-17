@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="email_template_cost_analysis" model="mail.template">
+            <field name="name">Cost Analysis Email Template</field>
+            <field name="model_id" ref="cost_analysis.model_cost_analysis" />
+            <field name="subject">Cost Analysis of {{ object.product_id.name }} - (LC-Number:{{object.lc_number or 'n/a'}})</field>
+            <field name="email_from">{{ (object.cost_manager.email_formatted or user.email_formatted) }}</field>
+            <field name="partner_to">{{ object.partner_id.id }}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;"> 
+                        Hello, 
+                        <br /><br /> 
+                        Your Cost Analysis Report for 
+                        <br />
+                        <strong>Purchase Order ID: </strong>
+                        <b><i><t t-out="object.purchase_id.name"/></i></b>
+                        <br />
+                        <strong>Total Amount: </strong> 
+                        <b><i><t t-out="object.total_cost"/></i></b>
+                        <br />
+                        is attached with this email.
+                        <br /><br />
+                        Do not hesitate to contact us if you have any questions.
+                        <br /><br />
+                        Regards
+                        <br />
+                        <t t-out="object.cost_manager.name"/>
+                    </p>
+                </div>
+            </field>
+            <field name="report_template" ref="action_report_cost_analysis" />
+            <field name="report_name">{{ (object.lc_number or '').replace('/','_') }}</field>
+            <field name="lang">{{ object.partner_id.lang }}</field>
+            <field name="auto_delete" eval="True" />
+        </record>
+    </data>
+</odoo>

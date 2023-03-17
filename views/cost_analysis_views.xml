@@ -26,6 +26,8 @@
             type="object" />
           <button name="print_cost_analysis_report" class="btn btn-secondary" string="Print Report"
             type="object" />
+          <button name="send_cost_analysis_email" class="btn btn-secondary" string="Send By Email"
+            type="object" />
         </header>
         <sheet>
           <div class="oe_button_box" name="button_box">

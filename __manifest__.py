@@ -21,6 +21,7 @@
         'security/security_views.xml',
         'security/ir.model.access.csv',
         'data/data.xml',
+        'data/mail_template_data.xml',
         'views/cost_analysis_views.xml',
         'views/costing_category_views.xml',
         'views/res_partner.xml',
